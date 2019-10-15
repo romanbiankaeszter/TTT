@@ -10,7 +10,7 @@ def init_board():
              ".",".",".",
              ".",".","."]
 
-
+    # players
     p1="X"
     p2="O"
     
@@ -25,17 +25,18 @@ def init_board():
         print("  ---+---+---")
         print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
 
-        
+
         coor=input("Give a row and column: ")
 
 
+        # player changer
 
         if current_player==p1:
             current_player=p2
         elif current_player ==p2:
             current_player=p1
         
-
+        # Marker
 
         if coor == "a1" or coor == "1a":
             board[0]=current_player
@@ -47,7 +48,7 @@ def init_board():
         if coor == "a3" or coor == "3a":
             board[2]=current_player
         
-        if coor == "b1" or coor == "b1":
+        if coor == "b1" or coor == "1b":
             board[3]=current_player
 
         
@@ -67,13 +68,13 @@ def init_board():
         if coor == "c3" or coor == "3c":
             board[8]=current_player
 
+
         print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
         print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
         print("  ---+---+---")
         print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
         print("  ---+---+---")
         print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
-
 
     return board
 
