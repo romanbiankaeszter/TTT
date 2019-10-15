@@ -16,7 +16,23 @@ def init_board():
     
     current_player = p1
 
-    while True:
+    #win conditions
+
+    row1 = board[0] == board[1] == board[2] !="."
+    row2 = board[3] == board[4] == board[5] !="."
+    row3 = board[6] == board[7] == board[8] !="."
+
+    
+    column1 = board[0] == board[3] == board[6] !="."
+    column2 = board[1] == board[4] == board[7] !="."
+    column3 = board[2] == board[5] == board[8] !="."
+
+    game_over=False
+
+
+
+    while not game_over:
+
 
         print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
         print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
@@ -76,6 +92,17 @@ def init_board():
         print("  ---+---+---")
         print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
 
+
+
+        if row1 or row2 or row3:
+            game_over=True
+
+        if column1 or column2 or column3:
+            game_over=True
+
+    if game_running==False:
+        print("thx for playing!")
+
     return board
 
 
@@ -106,9 +133,6 @@ def mark(board, player, row, col):
 
 def has_won(board, player):
     """Returns True if player has won the game."""
-    game_over = False
-    if game_over == True:
-        print:("Thx for playing") 
     
     return False
 
