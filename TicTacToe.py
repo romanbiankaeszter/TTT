@@ -17,10 +17,41 @@ def init_board():
     print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
 
     coor=input("Give a row (a,b or c): ")
-    if coor == "a":
-        board[0]="X"
+
 
     
+    current_player="X"
+
+    if coor == "a1" or coor == "1a":
+        board[0]=current_player
+    
+    if coor == "a2" or coor == "2a":
+        board[1]=current_player
+
+    
+    if coor == "a3" or coor == "3a":
+        board[2]=current_player
+    
+    if coor == "b1" or coor == "b1":
+        board[3]=current_player
+
+    
+    if coor == "b2" or coor == "2b":
+        board[4]=current_player
+    
+    if coor == "b3" or coor == "3b":
+        board[5]=current_player
+
+    
+    if coor == "c1" or coor == "1c":
+        board[6]=current_player
+    
+    if coor == "c2" or coor == "2c":
+        board[7]=current_player
+
+    if coor == "c3" or coor == "3c":
+        board[8]=current_player
+
     print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
     print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
     print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
