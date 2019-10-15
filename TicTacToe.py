@@ -11,55 +11,68 @@ def init_board():
              ".",".","."]
 
 
-    print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
-    print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
-    print("  ---+---+---")
-    print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
-    print("  ---+---+---")
-    print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
-
-    coor=input("Give a row and column: ")
-
-
+    p1="X"
+    p2="O"
     
-    current_player="X"
+    current_player = p1
 
-    if coor == "a1" or coor == "1a":
-        board[0]=current_player
-    
-    if coor == "a2" or coor == "2a":
-        board[1]=current_player
+    while True:
 
-    
-    if coor == "a3" or coor == "3a":
-        board[2]=current_player
-    
-    if coor == "b1" or coor == "b1":
-        board[3]=current_player
+        print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
+        print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
+        print("  ---+---+---")
+        print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
+        print("  ---+---+---")
+        print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
 
-    
-    if coor == "b2" or coor == "2b":
-        board[4]=current_player
-    
-    if coor == "b3" or coor == "3b":
-        board[5]=current_player
+        
+        coor=input("Give a row and column: ")
 
-    
-    if coor == "c1" or coor == "1c":
-        board[6]=current_player
-    
-    if coor == "c2" or coor == "2c":
-        board[7]=current_player
 
-    if coor == "c3" or coor == "3c":
-        board[8]=current_player
 
-    print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
-    print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
-    print("  ---+---+---")
-    print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
-    print("  ---+---+---")
-    print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
+        if current_player==p1:
+            current_player=p2
+        elif current_player ==p2:
+            current_player=p1
+        
+
+
+        if coor == "a1" or coor == "1a":
+            board[0]=current_player
+        
+        if coor == "a2" or coor == "2a":
+            board[1]=current_player
+
+        
+        if coor == "a3" or coor == "3a":
+            board[2]=current_player
+        
+        if coor == "b1" or coor == "b1":
+            board[3]=current_player
+
+        
+        if coor == "b2" or coor == "2b":
+            board[4]=current_player
+        
+        if coor == "b3" or coor == "3b":
+            board[5]=current_player
+
+        
+        if coor == "c1" or coor == "1c":
+            board[6]=current_player
+        
+        if coor == "c2" or coor == "2c":
+            board[7]=current_player
+
+        if coor == "c3" or coor == "3c":
+            board[8]=current_player
+
+        print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
+        print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
+        print("  ---+---+---")
+        print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
+        print("  ---+---+---")
+        print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
 
 
     return board
@@ -92,11 +105,16 @@ def mark(board, player, row, col):
 
 def has_won(board, player):
     """Returns True if player has won the game."""
+    game_over = False
+    if game_over == True:
+        print:("Thx for playing") 
+    
     return False
 
 
 def is_full(board):
     """Returns True if board is full."""
+    
     return False
 
 
