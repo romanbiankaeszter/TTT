@@ -1,11 +1,43 @@
 def init_board():
     """Returns an empty 3-by-3 board (with zeros)."""
     board = []
+    
+    rows = ["A","B","C"]
+
+    columns = ["1","2","3"]
+
+    board = [".",".",".",
+             ".",".",".",
+             ".",".","."]
+
+
+    print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
+    print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
+    print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
+    print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
+
+    coor=input("Give a row (a,b or c): ")
+    if coor == "a":
+        board[0]="X"
+
+    
+    print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
+    print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
+    print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
+    print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
+
+
     return board
 
 
 def get_move(board, player):
     """Returns the coordinates of a valid move for player on board."""
+    
+    
+
+    
+    
+    
     row, col = 0, 0
     return row, col
 
@@ -18,6 +50,8 @@ def get_ai_move(board, player):
 
 def mark(board, player, row, col):
     """Marks the element at row & col on the board for player."""
+   
+    
     pass
 
 
@@ -60,32 +94,11 @@ def main_menu():
 if __name__ == '__main__':
     main_menu()
 
-def init_board():
 
-    rows = ["A","B","C"]
-
-    columns = ["1","2","3"]
-
-    board = [".",".",".",
-            ".",".",".",
-            ".",".","."]
-
-
-    print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
-    print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
-    print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
-    print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
-
-
+"""
 def get_move():
     coor=input("Give a row (a,b or c): ")
 
     if coor == "1a" or "a1":
         board[0] = "X"
-
-
-
-
-
-init_board()
-get_move()
+"""
