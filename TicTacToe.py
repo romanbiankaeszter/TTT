@@ -13,10 +13,12 @@ def init_board():
 
     print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
     print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
+    print("  ---+---+---")
     print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
+    print("  ---+---+---")
     print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
 
-    coor=input("Give a row (a,b or c): ")
+    coor=input("Give a row and column: ")
 
 
     
@@ -54,7 +56,9 @@ def init_board():
 
     print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
     print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
+    print("  ---+---+---")
     print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
+    print("  ---+---+---")
     print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
 
 
