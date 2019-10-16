@@ -1,7 +1,7 @@
+import sys
+
 def init_board():
     """Returns an empty 3-by-3 board (with zeros)."""
-    board = []
-    
     rows = ["A","B","C"]
 
     columns = ["1","2","3"]
@@ -27,11 +27,11 @@ def init_board():
     column2 = board[1] == board[4] == board[7] !="."
     column3 = board[2] == board[5] == board[8] !="."
 
-    game_over=False
+    game_running=True
 
 
 
-    while not game_over:
+    while game_running:
 
 
         print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
@@ -95,12 +95,17 @@ def init_board():
 
 
         if row1 or row2 or row3:
-            game_over=True
+            game_running=False
 
         if column1 or column2 or column3:
-            game_over=True
+            game_running=False
 
-    if game_running==False:
+        if board[0]=="X":
+            print("thx for playing!")
+            sys.exit(0)
+
+    if board[0]=="X":
+        sys.exit(0)
         print("thx for playing!")
 
     return board
