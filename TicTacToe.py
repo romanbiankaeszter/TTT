@@ -10,6 +10,7 @@ def init_board():
              [".",".","."],
              [".",".","."]]
 
+
     # players
     p1="X"
     p2="O"
@@ -34,14 +35,12 @@ def init_board():
     # possibly this ll be a game stopper
     game_running=True
 
-
+    print_board(board, columns, rows)
 
     while game_running is True:
         
-        print_board(board, columns, rows)
         
         #input
-
         coor=input("Give a row and column: ")
 
         
@@ -110,16 +109,17 @@ def init_board():
         elif across1 or across2:
             game_running=False
 
-        
-        
+        #get the winner
+            
         if game_running==False:
             print(f"{current_player} won thx for playing!")
             sys.exit(0)
         
         #in case the game ended in a tie
 
-        elif not "." in board:
-            print("The game ended in a Tie thx for playing!")
+        #elif not "." in board:                     vmi nem oke ezzel 
+        #    print("The game ended in a Tie thx for playing!")
+            
 
          
         # player changer
@@ -201,7 +201,6 @@ def tictactoe_game(mode='HUMAN-HUMAN'):
 
     winner = 0
     print_result(winner)
-
 
 def main_menu():
     tictactoe_game('HUMAN-HUMAN')
