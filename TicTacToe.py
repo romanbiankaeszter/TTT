@@ -27,6 +27,10 @@ def init_board():
     column2 = board[1] == board[4] == board[7] !="."
     column3 = board[2] == board[5] == board[8] !="."
 
+
+    across1 = board[0] == board[4] == board[8] !="."
+    across2 = board[2] == board[4] == board[6] !="."
+
     game_running=True
 
 
@@ -98,6 +102,9 @@ def init_board():
             game_running=False
 
         if column1 or column2 or column3:
+            game_running=False
+
+        if across1 or across2:
             game_running=False
 
         if board[0]=="X":
