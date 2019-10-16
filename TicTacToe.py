@@ -81,12 +81,6 @@ def init_board():
 
         print_board(board, columns, rows)
 
-        # player changer
-
-        if current_player==p1:
-            current_player=p2
-        elif current_player ==p2:
-            current_player=p1
         
         #win condition
 
@@ -102,28 +96,44 @@ def init_board():
 
         across1 = board[0][0] == board[1][1] == board[2][2] !="."
         across2 = board[0][2] == board[1][1] == board[2][0] !="."
-
+        
         #game over
 
         if row1 or row2 or row3:
             game_running=False
             
 
-        if column1 or column2 or column3:
+        elif column1 or column2 or column3:
             game_running=False
             
 
-        if across1 or across2:
+        elif across1 or across2:
             game_running=False
+
+        
+        
+        if game_running==False:
+            print(f"{current_player} won thx for playing!")
+            sys.exit(0)
+        
+        #in case the game ended in a tie
+
+        elif not "." in board:
+            print("The game ended in a Tie thx for playing!")
+
+         
+        # player changer
+
+        if current_player==p1:
+            current_player=p2
+        elif current_player ==p2:
+            current_player=p1
+                
+            
             
         
     #exit
 
-    if game_running==False:
-        print("thx for playing!")
-        sys.exit(0)
-
-    
 
 
 def get_move(board, player):
@@ -151,7 +161,7 @@ def mark(board, player, row, col):
     pass
 
 
-def has_won(board, player):
+def has_won(board):
     """Returns True if player has won the game."""
     
     return False
