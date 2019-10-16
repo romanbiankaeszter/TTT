@@ -6,9 +6,9 @@ def init_board():
 
     columns = ["1","2","3"]
 
-    board = [".",".",".",
-             ".",".",".",
-             ".",".","."]
+    board = [[".",".","."],
+             [".",".","."],
+             [".",".","."]]
 
     # players
     p1="X"
@@ -18,33 +18,42 @@ def init_board():
 
     #win conditions
 
-    row1 = board[0] == board[1] == board[2] !="."
-    row2 = board[3] == board[4] == board[5] !="."
-    row3 = board[6] == board[7] == board[8] !="."
+    row1 = board[0][0] == board[0][1] == board[0][2] !="."
+    row2 = board[1][0] == board[1][1] == board[1][2] !="."
+    row3 = board[2][0] == board[2][1] == board[2][2] !="."
 
     
-    column1 = board[0] == board[3] == board[6] !="."
-    column2 = board[1] == board[4] == board[7] !="."
-    column3 = board[2] == board[5] == board[8] !="."
+    column1 = board[0][0] == board[1][0] == board[2][0] !="."
+    column2 = board[0][1] == board[1][1] == board[2][1] !="."
+    column3 = board[0][2] == board[1][2] == board[2][2] !="."
 
 
-    across1 = board[0] == board[4] == board[8] !="."
-    across2 = board[2] == board[4] == board[6] !="."
+    across1 = board[0][0] == board[1][1] == board[2][2] !="."
+    across2 = board[0][2] == board[1][1] == board[2][0] !="."
 
+    # possibly this ll be a game stopper
     game_running=True
 
 
 
     while game_running:
 
+        row1 = board[0][0] == board[0][1] == board[0][2] !="."
+        row2 = board[1][0] == board[1][1] == board[1][2] !="."
+        row3 = board[2][0] == board[2][1] == board[2][2] !="."
 
-        print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
-        print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
-        print("  ---+---+---")
-        print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
-        print("  ---+---+---")
-        print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
+        
+        column1 = board[0][0] == board[1][0] == board[2][0] !="."
+        column2 = board[0][1] == board[1][1] == board[2][1] !="."
+        column3 = board[0][2] == board[1][2] == board[2][2] !="."
 
+
+        across1 = board[0][0] == board[1][1] == board[2][2] !="."
+        across2 = board[0][2] == board[1][1] == board[2][0] !="."
+        
+        print_board(board, columns, rows)
+        
+        #input
 
         coor=input("Give a row and column: ")
 
@@ -59,44 +68,41 @@ def init_board():
         # Marker
 
         if coor == "a1" or coor == "1a":
-            board[0]=current_player
+            board[0][0]=current_player
         
         if coor == "a2" or coor == "2a":
-            board[1]=current_player
+            board[0][1]=current_player
 
         
         if coor == "a3" or coor == "3a":
-            board[2]=current_player
+            board[0][2]=current_player
         
         if coor == "b1" or coor == "1b":
-            board[3]=current_player
+            board[1][0]=current_player
 
         
         if coor == "b2" or coor == "2b":
-            board[4]=current_player
+            board[1][1]=current_player
         
         if coor == "b3" or coor == "3b":
-            board[5]=current_player
+            board[1][2]=current_player
 
         
         if coor == "c1" or coor == "1c":
-            board[6]=current_player
+            board[2][0]=current_player
         
         if coor == "c2" or coor == "2c":
-            board[7]=current_player
+            board[2][1]=current_player
 
         if coor == "c3" or coor == "3c":
-            board[8]=current_player
+            board[2][2]=current_player
 
+        #shot the table after the turn's
 
-        print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
-        print(rows[0] + "  " + board[0] + " | " + board[1] + " | "  + board[2]) 
-        print("  ---+---+---")
-        print(rows[1] + "  " + board[3] + " | " + board[4] + " | "  + board[5])
-        print("  ---+---+---")
-        print(rows[2] + "  " + board[6] + " | " + board[7] + " | "  + board[8]) 
+        print_board(board, columns, rows)
 
-
+        
+        #game over
 
         if row1 or row2 or row3:
             game_running=False
@@ -106,14 +112,13 @@ def init_board():
 
         if across1 or across2:
             game_running=False
+        
+        #exit
 
-        if board[0]=="X":
+        if game_running==False:
             print("thx for playing!")
             sys.exit(0)
 
-    if board[0]=="X":
-        sys.exit(0)
-        print("thx for playing!")
 
     return board
 
@@ -155,9 +160,16 @@ def is_full(board):
     return False
 
 
-def print_board(board):
+def print_board(board, columns, rows):
     """Prints a 3-by-3 board on the screen with borders."""
-    pass
+
+    print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
+    print(rows[0] + "  " + board[0][0] + " | " + board[0][1] + " | "  + board[0][2]) 
+    print("  ---+---+---")
+    print(rows[1] + "  " + board[1][0] + " | " + board[1][1] + " | "  + board[1][2])
+    print("  ---+---+---")
+    print(rows[2] + "  " + board[2][0] + " | " + board[2][1] + " | "  + board[2][2]) 
+
 
 
 def print_result(winner):
