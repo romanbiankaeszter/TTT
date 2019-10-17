@@ -43,10 +43,13 @@ def get_move(board, player):
     return row, col
 
 
-def get_ai_move(board, player):
+def get_ai_move():
     """Returns the coordinates of a valid move for player on board."""
-    row, col = 0, 0
-    return row, col
+    print("itt még nincs semmi")
+    
+    
+    """row, col = 0, 0
+    return row, col"""
 
 
 def mark(board, player, row, col):
@@ -147,7 +150,11 @@ def tictactoe_game(mode='HUMAN-HUMAN'):
     print_result(winner)
 
 def main_menu():
-    tictactoe_game('HUMAN-HUMAN')
+    mode=input("Choose number: 1- two-player mode or 2- AI mode ")
+    if mode=="1":
+        tictactoe_game('HUMAN-HUMAN')
+    elif mode=="2":
+       get_ai_move() 
 
 
 if __name__ == '__main__':
