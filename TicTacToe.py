@@ -1,4 +1,4 @@
-import sys
+import random
 rows = ["A","B","C"]
 columns = ["1","2","3"]
 player_chars=[".","X","O"]
@@ -46,7 +46,6 @@ def get_move(board, player):
 def get_ai_move():
     """Returns the coordinates of a valid move for player on board."""
     print("itt még nincs semmi")
-    
     
     """row, col = 0, 0
     return row, col"""
@@ -96,7 +95,7 @@ def is_full(board):
 def print_board(board):
     """Prints a 3-by-3 board on the screen with borders."""
 
-    print("   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
+    print("\u001b[33m   " + columns[0] + "   " +columns[1]  +"   " + columns[2])
     board_elements=""
     for i in range(len(board)):
         board_elements=board_elements+rows[i] + "  "
